@@ -2,9 +2,6 @@
 DWES curso 22-23
 
 ## Introducción al proyecto
-Proyecto de club de Padel
+Proyecto de club de Padel como ejemplo de uso de POO en PHP versión 8.
 
-
-```php
-echo phpinfo(); //Este ha sido mi primer programa
-```
+![Diagrama de Clases](src/images/image.png)
