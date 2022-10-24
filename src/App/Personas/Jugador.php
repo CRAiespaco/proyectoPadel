@@ -1,6 +1,12 @@
 <?php
 
-namespace app;
+namespace App\Personas;
+
+use App\Personas\Entrenador;
+use App\Horarios\HorarioMensual;
+use App\Personas\Persona;
+use App\Personas\Enums\LadoPreferido;
+use App\Personas\Enums\ManoHabil;
 
 class Jugador extends Persona
 {
@@ -60,7 +66,7 @@ class Jugador extends Persona
     }
 
     /**
-     * @param int $manoHabil
+     * @param ManoHabil $manoHabil
      * @return Jugador
      */
     public function setManoHabil(ManoHabil $manoHabil): Jugador
@@ -240,7 +246,7 @@ class Jugador extends Persona
 
     public function generarHorarioPreferido(bool $renovacion):Jugador{
 
-        //TODO implementar la generación de horarios preferidos para el usuario
+        //TODO implementar la generación de Horarios preferidos para el usuario
         return $this;
     }
 

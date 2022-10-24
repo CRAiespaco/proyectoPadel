@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Personas;
+
+use App\Personas\Jugador;
 
 class Entrenador extends Empleado
 {

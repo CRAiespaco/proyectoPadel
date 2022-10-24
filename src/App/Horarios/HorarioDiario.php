@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App\Horarios;
 
 class HorarioDiario
 {
@@ -119,7 +119,7 @@ class HorarioDiario
     }
 
     public function imprimirHorarioDiario():string{
-        //TODO Función que recorra el array de horarios y lo imprima
+        //TODO Función que recorra el array de Horarios y lo imprima
         return "Función por implementar";
     }
 

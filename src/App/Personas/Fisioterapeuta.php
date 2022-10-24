@@ -1,11 +1,14 @@
 <?php
 
-namespace app;
+namespace App\Personas;
+
+use App\Personas\Empleado;
+use App\Personas\Jugador;
 
 class Fisioterapeuta extends Empleado
 {
-    private $numColegiado;
-    private $clienteVIP;
+    private int $numColegiado;
+    private Jugador $clienteVIP;
 
     /**
      * @param string $dni

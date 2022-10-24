@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Horarios;
 
 class HorarioMensual
 {
@@ -64,7 +64,7 @@ class HorarioMensual
     }
 
     public function generarHorarios(): ?HorarioMensual{
-        //TODO implementación de la funcionalidad de generar horarios
+        //TODO implementación de la funcionalidad de generar Horarios
         return $this;
     }
 

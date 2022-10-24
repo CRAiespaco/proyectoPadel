@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App\Personas\Enums;
 
 enum ManoHabil
 {

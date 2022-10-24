@@ -1,6 +1,8 @@
 <?php
 
-namespace app;
+namespace App\Horarios;
+
+use App\Personas\Jugador;
 
 class Intervalo
 {

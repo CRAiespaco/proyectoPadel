@@ -1,17 +1,19 @@
 <?php
 
-namespace App;
+namespace App\Servicios;
+
+use App\Servicios\Enums\TipoPista;
 
 class Pista
 {
-    private $idPista;
-    private $precio;
-    private $luz;
-    private $precioLuz;
-    private $tipoPista;
-    private $cubierta;
-    private $disponible;
-    private $reservaPistaMensual;
+    private int $idPista;
+    private float $precio;
+    private bool $luz;
+    private float $precioLuz;
+    private TipoPista $tipoPista;
+    private bool $cubierta;
+    private bool $disponible;
+    private array $reservaPistaMensual;
 
     /**
      * @param $idPista
@@ -159,7 +161,7 @@ class Pista
     }
 
     public function generarHorarioMensual():Pista{
-        //TODO implmentar generador de horarios
+        //TODO implmentar generador de Horarios
         return $this;
     }
 

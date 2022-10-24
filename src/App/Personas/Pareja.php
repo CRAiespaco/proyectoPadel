@@ -1,6 +1,7 @@
 <?php
 
-namespace app;
+namespace App\Personas;
+use App\Personas\Jugador;
 
 class Pareja
 {
@@ -58,7 +59,7 @@ class Pareja
         /*
          * TODO implementar funcionalidad para crear pareja
          * basado en el lado en el que juegan si aceptan partidas mixtas
-         * la mano preferida y los horarios que tienen disponibles
+         * la mano preferida y los Horarios que tienen disponibles
          */
         return $this;
     }

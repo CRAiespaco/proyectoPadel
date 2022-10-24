@@ -1,6 +1,10 @@
 <?php
 
-namespace app;
+namespace App\Servicios;
+
+use App\Personas\Pareja;
+use App\Servicios\Pista;
+use App\Horarios\Intervalo;
 
 class Partida
 {
