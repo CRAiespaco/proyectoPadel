@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Servicios;
+include __DIR__."/../../autoload.php";
+
 
 use App\Personas\Pareja;
 use App\Servicios\Pista;

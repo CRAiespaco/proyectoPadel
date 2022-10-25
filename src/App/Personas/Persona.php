@@ -2,6 +2,7 @@
 
 namespace App\Personas;
 
+
 class Persona
 {
     private string $dni;

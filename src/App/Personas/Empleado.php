@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Personas;
+include __DIR__."/../../autoload.php";
+
 use App\Horarios\HorarioMensual;
+
 
 class Empleado extends Persona
 {

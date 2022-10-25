@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Personas;
+include __DIR__."/../../autoload.php";
 
 use App\Personas\Jugador;
 

@@ -8,6 +8,8 @@ use App\Personas\Persona;
 use App\Personas\Enums\LadoPreferido;
 use App\Personas\Enums\ManoHabil;
 
+include __DIR__."/../../autoload.php";
+
 class Jugador extends Persona
 {
     private int $nivelJuego;

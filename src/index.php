@@ -11,11 +11,13 @@
     use App\Personas\Jugador;
     use App\Personas\Persona;
 
-    include_once("App/Personas/Persona.php");
-    include_once("App/Personas/Jugador.php");
-    include_once("App/Personas/Enums/ManoHabil.php");
-    include_once("App/Personas/Enums/LadoPreferido.php");
-    include_once("App/Horarios/Intervalo.php");
+    include "autoload.php";
+
+//    include_once("App/Personas/Persona.php");
+//    include_once("App/Personas/Jugador.php");
+//    include_once("App/Personas/Enums/ManoHabil.php");
+//    include_once("App/Personas/Enums/LadoPreferido.php");
+//    include_once("App/Horarios/Intervalo.php");
 
     $persona = new Persona('12345678A','Javier','Gonzalez');
 

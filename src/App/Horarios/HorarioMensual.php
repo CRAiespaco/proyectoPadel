@@ -2,6 +2,9 @@
 
 namespace App\Horarios;
 
+include __DIR__."/../../autoload.php";
+
+
 class HorarioMensual
 {
     private int $mes;
