@@ -92,4 +92,14 @@ class Intervalo
         $this->socioReservado=$jugador;
         return $this;
     }
+
+    public static function calcularFinIntervalo(float $horaIncioIntervalo, int $duracionIntervalo):float
+    {
+        return 0.0;
+    }
+
+    public function __toString():string{
+
+        return "salida";
+    }
 }
