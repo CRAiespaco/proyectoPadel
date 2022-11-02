@@ -33,9 +33,12 @@ class Jugador extends Persona
      * @param ManoHabil $manoHabil
      * @param LadoPreferido $ladoPreferido
      */
-    public function __construct(string $dni,string $nombre,string $apellidos,int $nivelJuego, ManoHabil $manoHabil,LadoPreferido $ladoPreferido)
+    public function __construct(string $dni,string $nombre,string $apellidos,
+        string $correoElectronico, string $contrasenya,
+        int $nivelJuego, ManoHabil $manoHabil,LadoPreferido $ladoPreferido,
+        string $telefono=null)
     {
-        parent::__construct($dni,$nombre,$apellidos);
+        parent::__construct($dni,$nombre,$apellidos,$correoElectronico,$contrasenya, $telefono);
         $this->nivelJuego = $nivelJuego;
         $this->manoHabil = $manoHabil;
         $this->ladoPreferido = $ladoPreferido;

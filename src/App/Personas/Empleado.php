@@ -21,9 +21,11 @@ class Empleado extends Persona
      * @param $cuentaCorriente
      * @param $numSeguridadSocial
      */
-    public function __construct(string $dni,string $nombre,string $apellidos,string $direccion, string$cuentaCorriente,string $numSeguridadSocial)
+    public function __construct(string $dni,string $nombre,string $apellidos,
+        string $correoElectronico, string $contrasenya,string $direccion,
+        string $cuentaCorriente,string $numSeguridadSocial, string $telefono=null)
     {
-        parent::__construct($dni,$nombre,$apellidos);
+        parent::__construct($dni,$nombre,$apellidos,$correoElectronico,$contrasenya,$telefono);
         $this->direccion = $direccion;
         $this->cuentaCorriente = $cuentaCorriente;
         $this->numSeguridadSocial = $numSeguridadSocial;

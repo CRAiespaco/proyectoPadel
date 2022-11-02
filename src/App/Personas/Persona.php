@@ -9,11 +9,19 @@ class Persona
     private string $nombre;
     private string $apellidos;
     private string $telefono;
+    private string $correoElectronico;
+    private string $contrasenya;
 
-    public function __construct(string $dni, string $nombre, string $apellidos){
+
+
+    public function __construct(string $dni, string $nombre, string $apellidos,
+        string $correoElectronico, string $contrasenya, string $telefono=null){
         $this->dni=$dni;
         $this->nombre=$nombre;
         $this->apellidos=$apellidos;
+        $this->correoElectronico=$correoElectronico;
+        $this->contrasenya=$contrasenya;
+        $this->telefono=$telefono;
     }
 
     public function setDNI(string $dni):Persona{
@@ -76,6 +84,42 @@ class Persona
     public function setTelefono($telefono):Persona
     {
         $this->telefono = $telefono;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCorreoElectronico(): string
+    {
+        return $this->correoElectronico;
+    }
+
+    /**
+     * @param string $correoElectronico
+     * @return Persona
+     */
+    public function setCorreoElectronico(string $correoElectronico): Persona
+    {
+        $this->correoElectronico = $correoElectronico;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContrasenya(): string
+    {
+        return $this->contrasenya;
+    }
+
+    /**
+     * @param string $contrasenya
+     * @return Persona
+     */
+    public function setContrasenya(string $contrasenya): Persona
+    {
+        $this->contrasenya = $contrasenya;
         return $this;
     }
 }

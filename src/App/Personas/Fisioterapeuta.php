@@ -8,21 +8,35 @@ use App\Personas\Jugador;
 
 class Fisioterapeuta extends Empleado
 {
+    /**
+     * @var int
+     */
     private int $numColegiado;
+    /**
+     * @var \App\Personas\Jugador
+     */
     private Jugador $clienteVIP;
+
 
     /**
      * @param string $dni
      * @param string $nombre
      * @param string $apellidos
+     * @param string $correoElectronico
+     * @param string $contrasenya
      * @param string $direccion
      * @param string $cuentaCorriente
      * @param string $numSeguridadSocial
      * @param int $numColegiado
+     * @param string $telefono
      */
-    public function __construct(string $dni,string $nombre,string $apellidos,string $direccion, string$cuentaCorriente,string $numSeguridadSocial, int $numColegiado)
+    public function __construct(string $dni,string $nombre,string $apellidos,
+        string $correoElectronico, string $contrasenya,
+        string $direccion, string$cuentaCorriente,string $numSeguridadSocial,
+        int $numColegiado, string $telefono)
     {
-        parent::__construct($dni,$nombre,$apellidos,$direccion,$cuentaCorriente,$numSeguridadSocial);
+        parent::__construct($dni,$nombre,$apellidos,$correoElectronico,$contrasenya,
+            $direccion,$cuentaCorriente,$numSeguridadSocial,$telefono);
         $this->numColegiado = $numColegiado;
     }
 
