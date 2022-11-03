@@ -10,6 +10,7 @@
     use App\Personas\Enums\ManoHabil;
     use App\Personas\Jugador;
     use App\Personas\Persona;
+    use Modelo\PersonaDAOMySQL;
 
     include "autoload.php";
 
@@ -19,7 +20,7 @@
 //    include_once("App/Personas/Enums/LadoPreferido.php");
 //    include_once("App/Horarios/Intervalo.php");
 
-    $persona = new Persona('12345678A','Javier','Gonzalez');
+    /*$persona = new Persona('12345678A','Javier','Gonzalez');
 
 //    var_dump($persona);
     echo "<br>";
@@ -62,4 +63,12 @@
 
     }
 
-    echo "<br> Resultado de la búsqueda: ". array_search($intervalo2,$array);
+    echo "<br> Resultado de la búsqueda: ". array_search($intervalo2,$array);*/
+
+    $personaDAO = new PersonaDAOMySQL();
+
+    if ($personaDAO->getConexion()){
+        echo "Se ha conectado correctamente";
+    }else{
+        echo "fallo de conexion";
+    }
