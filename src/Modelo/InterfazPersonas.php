@@ -16,6 +16,6 @@ interface InterfazPersonas
     public function obtenerPersonasSinTelefono():array;
     public function obtenerPersonasPorNombre(string $nombre):array;
     public function obtenerPersonasPorApellidos(string $apellidos):array;
-    public function obtenerRangoPersonas(int $inicio, int $final):array;
+    public function obtenerRangoPersonas(int $inicio, int $numeroResultados=NUMERODERESULTADOSPORPAGINA):array;
 
 }
