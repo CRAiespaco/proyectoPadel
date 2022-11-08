@@ -15,7 +15,7 @@ class Persona
 
 
     public function __construct(string $dni, string $nombre, string $apellidos,
-        string $correoElectronico, string $contrasenya, string $telefono=null){
+        string $correoElectronico, string $contrasenya, string $telefono=''){
         $this->dni=$dni;
         $this->nombre=$nombre;
         $this->apellidos=$apellidos;
@@ -72,7 +72,7 @@ class Persona
     /**
      * @return mixed
      */
-    public function getTelefono():Persona
+    public function getTelefono():string
     {
         return $this->telefono;
     }

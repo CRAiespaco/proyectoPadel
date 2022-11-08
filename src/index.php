@@ -67,8 +67,9 @@
 
     $personaDAO = new PersonaDAOMySQL();
 
-    if ($personaDAO->getConexion()){
-        echo "Se ha conectado correctamente";
-    }else{
-        echo "fallo de conexion";
-    }
+    $personaAModificar = new Persona('44111222A','Javier','Azpeleta',
+    'javieraz@gmail.com','1234',"987653421");
+
+    $resultado = $personaDAO->borrarPersona($personaAModificar);
+
+    var_dump($resultado);
