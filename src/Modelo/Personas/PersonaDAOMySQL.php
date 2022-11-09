@@ -1,11 +1,12 @@
 <?php
 
-namespace Modelo;
+namespace Modelo\Personas;
 
 use App\Personas\Persona;
-use \PDO;
-require_once __DIR__."/../datosConexionBD.php";
-require_once __DIR__."/../datosConfiguracion.php";
+use PDO;
+
+require_once __DIR__."/../../datosConexionBD.php";
+require_once __DIR__."/../../datosConfiguracion.php";
 
 
 
@@ -77,37 +78,56 @@ class PersonaDAOMySQL extends PersonaDAO
         if ($resultado) {
             return $persona;
         } else {
-            return $resultado;
+            return null;
         }
     }
 
     public function borrarPersona(Persona $persona): ?Persona
     {
-        $resultado = $this->borrarPersonaPorDNI($persona->getDNI());
+        return $this->borrarPersonaPorDNI($persona->getDNI());
+    }
 
-        return $resultado;
+    public function borrarTodasLasPersonas():bool{
+        $sentencia=$this->getConexion()->query("TRUNCATE persona");
+        return $sentencia->execute();
+
     }
 
     public function insertarPersona(Persona $persona): ?Persona
     {
-        $query = "INSERT INTO persona (DNI,NOMBRE,APELLIDOS,TELEFONO,CORREOELECTRONICO,CONTRASENYA) 
+
+        if ($persona->getTelefono()===''){
+            $query = "INSERT INTO persona (DNI,NOMBRE,APELLIDOS,TELEFONO,CORREOELECTRONICO,CONTRASENYA) 
+                    VALUES (:dni,:nombre,:apellidos,NULL,:correo,:pass)";
+            $sentencia = $this->getConexion()->prepare($query);
+
+            $sentencia->bindValue("dni", $persona->getDNI());
+            $sentencia->bindValue("nombre", $persona->getNombre());
+            $sentencia->bindValue("apellidos", $persona->getApellidos());
+            $sentencia->bindValue("correo", $persona->getCorreoElectronico());
+            $sentencia->bindValue("pass", $persona->getContrasenya());
+        }else {
+            $query = "INSERT INTO persona (DNI,NOMBRE,APELLIDOS,TELEFONO,CORREOELECTRONICO,CONTRASENYA) 
                     VALUES (:dni,:nombre,:apellidos,:telefono,:correo,:pass)";
+            $sentencia = $this->getConexion()->prepare($query);
 
-        $sentencia = $this->getConexion()->prepare($query);
+            $sentencia->bindValue("dni", $persona->getDNI());
+            $sentencia->bindValue("nombre", $persona->getNombre());
+            $sentencia->bindValue("apellidos", $persona->getApellidos());
+            $sentencia->bindValue("telefono", $persona->getTelefono());
+            $sentencia->bindValue("correo", $persona->getCorreoElectronico());
+            $sentencia->bindValue("pass", $persona->getContrasenya());
+        }
 
-        $sentencia->bindValue("dni", $persona->getDNI());
-        $sentencia->bindValue("nombre", $persona->getNombre());
-        $sentencia->bindValue("apellidos", $persona->getApellidos());
-        $sentencia->bindValue("telefono", $persona->getTelefono());
-        $sentencia->bindValue("correo", $persona->getCorreoElectronico());
-        $sentencia->bindValue("pass", $persona->getContrasenya());
+
+
 
         $resultado = $sentencia->execute();
 
         if ($resultado) {
             return $persona;
         } else {
-            return 0;
+            return null;
         }
     }
 
@@ -144,9 +164,59 @@ class PersonaDAOMySQL extends PersonaDAO
         return $arrayObjetos;
     }
 
+    public function obtenerPersonasSinTelefono():?array{
+
+        $query = "SELECT * FROM persona WHERE TELEFONO IS NULL";
+        $sentencia = $this->getConexion()->prepare($query);
+        $sentencia->execute();
+        $resultado = $sentencia;
+        $arrayPersonasSinTelefono=false;
+        if($resultado){
+
+            foreach ($resultado as $informacionPersona) {
+                $arrayPersonasSinTelefono[]=$this->convertirArrayAPersona($informacionPersona);
+            }
+        }
+        return $arrayPersonasSinTelefono;
+
+
+    }
+    public function obtenerPersonasPorNombre(string $nombre):?array{
+        $query = "SELECT * FROM persona WHERE NOMBRE= ?";
+        $sentencia = $this->getConexion()->prepare($query);
+        $sentencia->execute([$nombre]);
+        $resultado = $sentencia;
+        $arrayPersonasSinTelefono=false;
+        if($resultado){
+
+            foreach ($resultado as $informacionPersona) {
+                $arrayPersonasSinTelefono[]=$this->convertirArrayAPersona($informacionPersona);
+            }
+        }
+        return $arrayPersonasSinTelefono;
+    }
+    public function obtenerPersonasPorApellidos(string $apellidos):?array{
+        $query = "SELECT * FROM persona WHERE APELLIDOS= ?";
+        $sentencia = $this->getConexion()->prepare($query);
+        $sentencia->execute([$apellidos]);
+        $resultado = $sentencia;
+        $arrayPersonasSinTelefono=false;
+        if($resultado){
+
+            foreach ($resultado as $informacionPersona) {
+                $arrayPersonasSinTelefono[]=$this->convertirArrayAPersona($informacionPersona);
+            }
+        }
+        return $arrayPersonasSinTelefono;
+    }
+
 
     private function convertirArrayAPersona(array $datosPersona):?Persona
     {
+        if ($datosPersona['TELEFONO']==NULL){
+            $datosPersona['TELEFONO']='';
+        }
+
         return new Persona($datosPersona['DNI'],$datosPersona['NOMBRE'],
             $datosPersona['APELLIDOS'],$datosPersona['CORREOELECTRONICO'],
             $datosPersona['CONTRASENYA'],$datosPersona['TELEFONO']);

@@ -5,12 +5,8 @@
 
     namespace App;
 
-    use App\Horarios\Intervalo;
-    use App\Personas\Enums\LadoPreferido;
-    use App\Personas\Enums\ManoHabil;
-    use App\Personas\Jugador;
     use App\Personas\Persona;
-    use Modelo\PersonaDAOMySQL;
+    use Modelo\Personas\PersonaDAOMySQL;
 
     include "autoload.php";
 
@@ -67,11 +63,29 @@
 
     $personaDAO = new PersonaDAOMySQL();
 
+    $personaDAO->borrarTodasLasPersonas();
+
     $personaAModificar = new Persona('44111333B','Javier','Azpeleta',
     'javieraz@gmail.com','1234',"987653421");
+    $resultado = $personaDAO->insertarPersona($personaAModificar);
 
-    //$resultado = $personaDAO->insertarPersona($personaAModificar);
+    $personaAModificar = new Persona('44111444D','Javier','Azpeleta',
+        'javieraz@gmail.com','1234');
 
-    $resultado=$personaDAO->obtenerRangoPersonas(0,50);
+    //$personaDAO->insertarPersona($personaAModificar);
+
+    $resultado = $personaDAO->insertarPersona($personaAModificar);
+
+    //$resultado=$personaDAO->obtenerRangoPersonas(0,50);
+
+    $resultado = $personaDAO->obtenerPersonasPorNombre("Javier");
+
+    var_dump($resultado);
+
+    $resultado = $personaDAO->obtenerPersonasPorApellidos("Azpeleta");
+
+    var_dump($resultado);
+
+    $resultado = $personaDAO->obtenerPersonasSinTelefono();
 
     var_dump($resultado);

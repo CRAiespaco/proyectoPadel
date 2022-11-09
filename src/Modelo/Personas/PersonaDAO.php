@@ -1,9 +1,9 @@
 <?php
 
-namespace Modelo;
+namespace Modelo\Personas;
 
 use App\Personas\Persona;
-use \PDO;
+use PDO;
 
 abstract class PersonaDAO implements InterfazPersonas
 {
@@ -59,22 +59,22 @@ abstract class PersonaDAO implements InterfazPersonas
         // TODO: Implement leerTodasLasPersonas() method.
     }
 
-    public function obtenerPersonasSinTelefono(): array
+    public function obtenerPersonasSinTelefono(): ?array
     {
         // TODO: Implement obtenerPersonasSinTelefono() method.
     }
 
-    public function obtenerPersonasPorNombre(string $nombre): array
+    public function obtenerPersonasPorNombre(string $nombre): ?array
     {
         // TODO: Implement obtenerPersonasPorNombre() method.
     }
 
-    public function obtenerPersonasPorApellidos(string $apellidos): array
+    public function obtenerPersonasPorApellidos(string $apellidos): ?array
     {
         // TODO: Implement obtenerPersonasPorApellidos() method.
     }
 
-    public function obtenerRangoPersonas(int $inicio, int $final): array
+    public function obtenerRangoPersonas(int $inicio, int $numeroResultados=NUMERODERESULTADOSPORPAGINA): array
     {
         // TODO: Implement obtenerRangoPersonas() method.
     }

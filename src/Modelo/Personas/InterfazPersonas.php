@@ -1,6 +1,6 @@
 <?php
 
-namespace Modelo;
+namespace Modelo\Personas;
 
 use App\Personas\Persona;
 
@@ -13,9 +13,9 @@ interface InterfazPersonas
     public function leerPersona(string $dni):?Persona;
 
     public function leerTodasLasPersonas():array;
-    public function obtenerPersonasSinTelefono():array;
-    public function obtenerPersonasPorNombre(string $nombre):array;
-    public function obtenerPersonasPorApellidos(string $apellidos):array;
+    public function obtenerPersonasSinTelefono():?array;
+    public function obtenerPersonasPorNombre(string $nombre):?array;
+    public function obtenerPersonasPorApellidos(string $apellidos):?array;
     public function obtenerRangoPersonas(int $inicio, int $numeroResultados=NUMERODERESULTADOSPORPAGINA):array;
 
 }
