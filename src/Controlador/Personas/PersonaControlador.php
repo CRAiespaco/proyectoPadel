@@ -21,41 +21,9 @@ class PersonaControlador
         $this->modelo = new personaDAOMySQL();
         //$this->vista = new personaVista();
     }
-
-    /**
-     * @return personaDAO
-     */
-    public function getModelo(): personaDAO
-    {
-        return $this->modelo;
-    }
-
-    /**
-     * @param personaDAO $modelo
-     * @return PersonaControlador
-     */
-    public function setModelo(personaDAO $modelo): PersonaControlador
-    {
-        $this->modelo = $modelo;
-        return $this;
-    }
-
-    /**
-     * @return personaVista
-     */
-    public function getVista(): personaVista
-    {
-        return $this->vista;
-    }
-
-    /**
-     * @param personaVista $vista
-     * @return PersonaControlador
-     */
-    public function setVista(personaVista $vista): PersonaControlador
-    {
-        $this->vista = $vista;
-        return $this;
+    public function comprobarUsuarioWeb($correoUsuario, $pass){
+        $persona=$this->modelo->leerPersonaPorCorreoElectronico($correoUsuario);
+        password_verify($pass,$persona->getContrasenya());
     }
 
 

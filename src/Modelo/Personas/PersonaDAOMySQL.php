@@ -222,6 +222,21 @@ class PersonaDAOMySQL extends PersonaDAO
             $datosPersona['CONTRASENYA'],$datosPersona['TELEFONO']);
     }
 
+    public function leerPersonaPorCorreoElectronico(string $correoElectronico):?Persona{
+        $query = "SELECT * FROM persona WHERE CORREOELECTRONICO=?";
+
+        $sentencia= $this->getConexion()->prepare($query);
+        $sentencia->bindParam(1,$correoElectronico);
+
+        if($sentencia->execute()){
+            $resultado = $sentencia->fetch();
+            return $this->convertirArrayAPersona($resultado);
+        }else{
+            return null;
+        }
+    }
+
+
 
 
 

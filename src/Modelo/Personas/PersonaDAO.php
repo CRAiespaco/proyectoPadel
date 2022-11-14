@@ -78,4 +78,8 @@ abstract class PersonaDAO implements InterfazPersonas
     {
         // TODO: Implement obtenerRangoPersonas() method.
     }
+    public function leerPersonaPorCorreoElectronico(string $correoElectronico):?Persona{
+
+    }
+
 }

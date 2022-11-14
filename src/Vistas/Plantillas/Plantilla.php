@@ -1,6 +1,6 @@
 <?php
 
-namespace Vistas\Plantilla;
+namespace Vistas\Plantillas;
 
 class Plantilla
 {
@@ -27,23 +27,23 @@ class Plantilla
                 <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
                 <meta name='description' content='' />
                 <meta name='author' content='' />
-                <title>$titulo></title>
+                <title>$titulo</title>
                 <!-- BOOTSTRAP CORE STYLE CSS -->
-                <link href='assets/css/bootstrap.css' rel='stylesheet' />
+                <link href='Vistas/Plantillas/assets/css/bootstrap.css' rel='stylesheet' />
                 <!-- FONT AWESOME CSS -->
-                <link href='assets/css/font-awesome.min.css' rel='stylesheet' />
+                <link href='Vistas/Plantillas/assets/css/font-awesome.min.css' rel='stylesheet' />
                 <!-- STYLE SWITCHER  CSS -->
-                <link href='assets/css/styleSwitcher.css' rel='stylesheet' />
+                <link href='Vistas/Plantillas/assets/css/styleSwitcher.css' rel='stylesheet' />
                 <!-- CUSTOM STYLE CSS -->
-                <link href='assets/css/style.css' rel='stylesheet' />
+                <link href='Vistas/Plantillas/assets/css/style.css' rel='stylesheet' />
                 <!--GREEN STYLE VERSION IS BY DEFAULT, USE ANY ONE STYLESHEET FROM TWO STYLESHEETS (green or red) HERE-->
-                <link href='assets/css/themes/green.css' id='mainCSS' rel='stylesheet' />
+                <link href='Vistas/Plantillas/assets/css/themes/green.css' id='mainCSS' rel='stylesheet' />
                 <!-- Google	Fonts -->
                 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
             </head>
             <body >";
     }
-    public function generarBarraNavegacion(array $opcionesMenu,string $dirLogo="/assets/img/logo.png"){
+    public function generarBarraNavegacion(array $opcionesMenu,string $dirLogo="Vistas/Plantillas/assets/img/logo.png"){
         $this->nav="
             <div class='navbar navbar-inverse navbar-fixed-top move-me' id='menu'>
             <div class='container'>
@@ -85,17 +85,17 @@ class Plantilla
     </div>
     <!--FOOTER SECTION END-->
     <!--  Jquery Core Script -->
-    <script src='plantilla/assets/js/jquery-1.10.2.js'></script>
+    <script src='Vistas/Plantillas/assets/js/jquery-1.10.2.js'></script>
     <!--  Core Bootstrap Script -->
-    <script src='plantilla/assets/js/bootstrap.js'></script>
+    <script src='Vistas/Plantillas/assets/js/bootstrap.js'></script>
      <!--  Scrolling Reveal Script -->
-    <script src='plantilla/assets/js/scrollReveal.js'></script>
+    <script src='Vistas/Plantillas/assets/js/scrollReveal.js'></script>
     <!--  Scroll Scripts --> 
-    <script src='plantilla/assets/js/jquery.easing.min.js'></script>
+    <script src='Vistas/Plantillas/assets/js/jquery.easing.min.js'></script>
      <!--  Style Switcher Scripts -->
-    <script src='plantilla/assets/js/styleSwitcher.js'></script>
+    <script src='Vistas/Plantillas/assets/js/styleSwitcher.js'></script>
         <!--  Custom Scripts -->    
-    <script src='plantilla/assets/js/custom.js'></script>
+    <script src='Vistas/Plantillas/assets/js/custom.js'></script>
    
 </body>
 </html>";
@@ -108,5 +108,31 @@ class Plantilla
         return $salida;
 
     }
+
+    /**
+     * @return string
+     */
+    public function getEncabezado(): string
+    {
+        return $this->encabezado;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNav(): string
+    {
+        return $this->nav;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFooter(): string
+    {
+        return $this->footer;
+    }
+
+
 
 }

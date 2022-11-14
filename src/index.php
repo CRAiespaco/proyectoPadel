@@ -7,8 +7,10 @@
 
     use App\Personas\Persona;
     use Modelo\Personas\PersonaDAOMySQL;
+    use Vistas\Personas\PersonaVista;
+    use Vistas\Plantillas\Plantilla;
 
-    include "autoload.php";
+    include __DIR__."/autoload.php";
 
 //    include_once("App/Personas/Persona.php");
 //    include_once("App/Personas/Jugador.php");
@@ -61,7 +63,7 @@
 
     echo "<br> Resultado de la búsqueda: ". array_search($intervalo2,$array);*/
 
-    $personaDAO = new PersonaDAOMySQL();
+/*    $personaDAO = new PersonaDAOMySQL();
 
     $personaDAO->borrarTodasLasPersonas();
 
@@ -88,4 +90,15 @@
 
     $resultado = $personaDAO->obtenerPersonasSinTelefono();
 
-    var_dump($resultado);
+    var_dump($resultado);*/
+
+//    $vista = new PersonaVista("Home");
+//
+//    $vista->getHtml()->generarBarraNavegacion(['Home'=>'./index.php',
+//        'Log In'=>'./login.php']);
+//
+//    echo $vista;
+
+    $plantilla = new Plantilla("Prueba");
+    echo $plantilla->getEncabezado();
+    echo $plantilla->getNav();
