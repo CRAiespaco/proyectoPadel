@@ -6,6 +6,7 @@
     namespace App;
 
     use App\Personas\Persona;
+    use Controlador\Personas\PersonaControlador;
     use Modelo\Personas\PersonaDAOMySQL;
     use Vistas\Personas\PersonaVista;
     use Vistas\Plantillas\Plantilla;
@@ -99,6 +100,10 @@
 //
 //    echo $vista;
 
-    $plantilla = new Plantilla("Prueba");
+    /*$plantilla = new Plantilla("Prueba");
     echo $plantilla->getEncabezado();
-    echo $plantilla->getNav();
+    echo $plantilla->getNav();*/
+
+    $controlador=new PersonaControlador();
+
+    $controlador->crear();
