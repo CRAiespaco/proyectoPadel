@@ -107,3 +107,4 @@
     $controlador=new PersonaControlador();
 
     $controlador->crear();
+    $controlador->crear();
