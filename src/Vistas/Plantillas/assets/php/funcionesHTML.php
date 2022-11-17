@@ -37,11 +37,11 @@ function generarBarraNavegacionHTML(){
                     <span class='icon-bar'></span>
                     <span class='icon-bar'></span>
                 </button>
-                <a class='navbar-brand' href='index.php'><img class='logo-custom' src='assets/img/logo180-50.png' alt='logo discosis'  /></a>
+                <a class='navbar-brand' href='pruebas.php'><img class='logo-custom' src='assets/img/logo180-50.png' alt='logo discosis'  /></a>
             </div>
             <div class='navbar-collapse collapse'>
                 <ul class='nav navbar-nav navbar-right'>
-                    <li ><a href='index.php'>INICIO</a></li>
+                    <li ><a href='pruebas.php'>INICIO</a></li>
                      <li><a href='#features'>DONDE ESTAMOS</a></li>
                     <li><a href='#developers'>EQUIPO</a></li>
                      <li><a href='#pricing'>SERVICIOS</a></li>

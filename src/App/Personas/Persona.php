@@ -3,8 +3,7 @@
 namespace App\Personas;
 
 
-class Persona
-{
+class Persona implements \JsonSerializable{
     private string $dni;
     private string $nombre;
     private string $apellidos;
@@ -121,5 +120,23 @@ class Persona
     {
         $this->contrasenya = $contrasenya;
         return $this;
+    }
+
+    public function __toString():string{
+        return $this->nombre." ". $this->apellidos." ".$this->dni;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'dni'=>$this->dni,
+            'nombre'=>$this->nombre,
+            'apellidos'=>$this->apellidos,
+            'telefono'=>$this->telefono,
+            'correoelectronico'=>$this->correoElectronico,
+        ];
     }
 }

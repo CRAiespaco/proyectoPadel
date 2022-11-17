@@ -33,4 +33,25 @@ class PersonaControlador
         $this->modelo->insertarPersona($persona);
     }
 
+    public function login(){
+        echo "Esta es la página del login";
+    }
+
+    public function mostrar($dni){
+        echo $dni;
+        //echo json_encode($this->modelo->leerTodasLasPersonas(),JSON_PRETTY_PRINT);
+    }
+
+    public function guardar(){
+        echo "Esta intentando guardar";
+    }
+
+    public function borrar(){
+        echo "Esta intentando borrar";
+    }
+
+    public function modificar(){
+        echo "Esta intentando modificar";
+    }
+
 }

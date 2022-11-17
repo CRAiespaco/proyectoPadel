@@ -9,7 +9,7 @@ class Plantilla
     private string $footer;
 
     public function __construct($titulo,
-        $opcionesMenu=['Inicio'=>'index.php',
+        $opcionesMenu=['Inicio'=>'pruebas.php',
             'Contacto'=>'contacto.php',
             'Sobre Nosotros'=>'about.php'])
     {
@@ -53,7 +53,7 @@ class Plantilla
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' href='index.php'><img class='logo-custom' src='$dirLogo' alt='logo discosis'  /></a>
+            <a class='navbar-brand' href='pruebas.php'><img class='logo-custom' src='$dirLogo' alt='logo discosis'  /></a>
         </div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav navbar-right'>";
