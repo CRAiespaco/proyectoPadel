@@ -19,6 +19,7 @@ class Router{
 
         $metodo=strtolower($metodo);
         $accion=$this->rutas[$metodo][$rutaFiltrada]?? null;
+        echo "prueba";
 
         if(!$accion){
             throw new RutaNoEncontradaException("Ruta no disponible.");
