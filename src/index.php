@@ -16,20 +16,22 @@ echo "</pre>";
 echo $_SERVER['REQUEST_URI']."<br>";
 echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);*/
 
+/*if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)==='persona'){
+    $persona=new PersonaControlador();
+    $persona->crear();
+}*/
+
 $router=new Router();
 $router->guardarRuta('get','/',function(){
     echo "Estoy en el index";
 });
 
-$router->guardarRuta('get','/personas',[PersonaControlador::class,"mostrar"]);
-$router->guardarRuta('post','/personas',[PersonaControlador::class,"guardar"]);
-$router->guardarRuta('delete','/personas',[PersonaControlador::class,"borrar"]);
-$router->guardarRuta('put','/personas',[PersonaControlador::class,"modificar"]);
+$router->guardarRuta('get','/api/personas',[PersonaControlador::class,"mostrar"]);
+$router->guardarRuta('post','/api/personas',[PersonaControlador::class,"guardar"]);
+$router->guardarRuta('delete','/api/personas',[PersonaControlador::class,"borrar"]);
+$router->guardarRuta('put','/api/personas',[PersonaControlador::class,"modificar"]);
 
 $router->resolverRuta($_SERVER['REQUEST_URI'],$_SERVER['REQUEST_METHOD']);
 
-/*if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)==='persona'){
-    $persona=new PersonaControlador();
-    $persona->crear();
-}*/
+
 

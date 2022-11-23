@@ -13,13 +13,21 @@ class Router{
     }
 
     public function  resolverRuta($ruta,$metodo){
+        //1ª Caso Me piden / personas
+
+        //2ª Caso Me pidan /persona/44333222A(dni)
+
         $rutaFiltrada=parse_url($ruta,PHP_URL_PATH);
-        $parametros=explode('/',$rutaFiltrada)[2];
-        $rutaFiltrada='/'.explode('/',$rutaFiltrada)[1];
+        $arrayRuta=explode('/',$rutaFiltrada);
+
+        $parametros=null;
+        if(count($arrayRuta)>3){
+            $parametros=$arrayRuta[3];
+            $rutaFiltrada='/'.$arrayRuta[1].'/'.$arrayRuta[2];
+        }
 
         $metodo=strtolower($metodo);
         $accion=$this->rutas[$metodo][$rutaFiltrada]?? null;
-        echo "prueba";
 
         if(!$accion){
             throw new RutaNoEncontradaException("Ruta no disponible.");
