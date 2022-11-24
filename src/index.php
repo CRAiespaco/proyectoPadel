@@ -33,5 +33,6 @@ $router->guardarRuta('put','/api/personas',[PersonaControlador::class,"modificar
 
 $router->resolverRuta($_SERVER['REQUEST_URI'],$_SERVER['REQUEST_METHOD']);
 
-
+$plantilla = new Plantilla("Prueba");
+echo $plantilla->generarTodaLaPagina();
 

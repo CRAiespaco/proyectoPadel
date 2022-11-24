@@ -43,7 +43,7 @@ class Plantilla
             </head>
             <body >";
     }
-    public function generarBarraNavegacion(array $opcionesMenu,string $dirLogo="Vistas/Plantillas/assets/img/logo.png"){
+    public function generarBarraNavegacion(array $opcionesMenu,string $dirLogo="Vistas/Plantillas/assets/img/logo2.png"){
         $this->nav="
             <div class='navbar navbar-inverse navbar-fixed-top move-me' id='menu'>
             <div class='container'>
@@ -63,7 +63,7 @@ class Plantilla
         }
 
         $this->nav.="
-        <li><a href='mailto:info@cobrapadel.es?Subject=Contacto' target='_top'> <i class='fa fa-envelope-o'></i><span class='home-mail'>e-mail: info@cobrapadel.es</span></a></li>
+        <li><a href='mailto:info@cobrapadel.es?Subject=Contacto' target='_top'> <i class='fa fa-envelope-o'></i><span class='home-mail'>e-mail: info@clubPadel.es</span></a></li>
         </ul>
         </div>
         
@@ -80,7 +80,7 @@ class Plantilla
         $fecha = new \DateTime();
         $anyo = $fecha->format('Y');
         $this->footer.=$anyo.
-         "cobrapadel.es | by: <a href='http://binarytheme.com' style='color:#fff;' target='_blank'  >www.binarytheme.com</a>
+         "clubPadel.es | by: <a href='http://binarytheme.com' style='color:#fff;' target='_blank'  >www.binarytheme.com</a>
 
     </div>
     <!--FOOTER SECTION END-->
