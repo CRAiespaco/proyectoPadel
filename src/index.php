@@ -26,6 +26,9 @@ $router->guardarRuta('get','/',function(){
     echo "Estoy en el index";
 });
 
+$router->guardarRuta('get','/',[LandingVista::class,"mostrarPagina"]);
+$router->guardarRuta('get','/login',[LoginVista::class,"mostrarLogin"]);
+$router->guardarRuta('get','/logear',[PersonaControlador::class,"mostrarLogin"]);
 $router->guardarRuta('get','/api/personas',[PersonaControlador::class,"mostrar"]);
 $router->guardarRuta('post','/api/personas',[PersonaControlador::class,"guardar"]);
 $router->guardarRuta('delete','/api/personas',[PersonaControlador::class,"borrar"]);
