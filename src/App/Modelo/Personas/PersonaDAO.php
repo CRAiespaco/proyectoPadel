@@ -1,28 +1,26 @@
 <?php
 
-namespace Modelo\Personas;
+namespace App\Modelo\Personas;
 
 use App\Personas\Persona;
 use PDO;
 
 abstract class PersonaDAO implements InterfazPersonas
 {
-    private PDO $conexion;
+    private $conexion;
 
     /**
-     * @return PDO
+     * @return
      */
-    public function getConexion(): PDO
-    {
+    public function getConexion(){
         return $this->conexion;
     }
 
     /**
-     * @param PDO $conexion
+     * @param $conexion
      * @return PersonaDAO
      */
-    public function setConexion(PDO $conexion): PersonaDAO
-    {
+    public function setConexion($conexion): PersonaDAO{
         $this->conexion = $conexion;
         return $this;
     }

@@ -1,4 +1,4 @@
-FROM php:8.0-apache
+FROM php:8.1-apache
 
 RUN a2enmod rewrite
 
@@ -16,6 +16,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       cron \
       sudo \
       libzip-dev \
+      libcurl4-openssl-dev\
+      pkg-config\
+      libssl-dev\
       && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
       && docker-php-ext-configure intl \
       && docker-php-ext-install \
@@ -30,6 +33,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean
 
+RUN docker-php-ext-configure calendar && docker-php-ext-install calendar
+
 WORKDIR /var/www/html
 
 ## COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
@@ -42,7 +47,7 @@ COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
 COPY --from=phpdoc/phpdoc /opt/phpdoc/bin/phpdoc /usr/local/bin/phpdoc
 
 # instalación de XDebug
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN pecl install xdebug && pecl install mongodb apcu && docker-php-ext-enable mongodb apcu && docker-php-ext-enable xdebug
 
 # instalación de phpunit
 RUN composer global require phpunit/phpunit && ln -s /var/www/html/vendor/bin/phpunit /usr/local/bin/phpunit

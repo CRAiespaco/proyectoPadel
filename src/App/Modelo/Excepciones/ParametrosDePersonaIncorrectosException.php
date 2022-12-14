@@ -1,6 +1,6 @@
 <?php
 
-namespace Modelo\Excepciones;
+namespace App\Modelo\Excepciones;
 
 class ParametrosDePersonaIncorrectosException extends \Exception{
 

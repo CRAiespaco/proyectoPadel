@@ -1,11 +1,11 @@
 <?php
 
-namespace Modelo\Personas;
+namespace App\Modelo\Personas;
 
+use App\Modelo\Excepciones\ActualizarPersonasException;
+use App\Modelo\Excepciones\PersonaNoEncontradaException;
 use App\Personas\Persona;
 use PDO;
-use Modelo\Excepciones\PersonaNoEncontradaException;
-use Modelo\Excepciones\ActualizarPersonasException;
 use PDOException;
 
 require_once __DIR__."/../../datosConexionBD.php";

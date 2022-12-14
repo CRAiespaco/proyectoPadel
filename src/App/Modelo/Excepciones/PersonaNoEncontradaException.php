@@ -1,6 +1,8 @@
 <?php
 
-namespace Modelo\Excepciones;
+namespace App\Modelo\Excepciones;
+
+use App\Modelo\Excepciones\Throwable;
 
 class PersonaNoEncontradaException extends \Exception{
 

@@ -46,7 +46,5 @@ class Router{
             }
             throw new RutaNoEncontradaException("Parámetro invalido");
         }
-
-
     }
 }

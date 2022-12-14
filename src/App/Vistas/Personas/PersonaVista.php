@@ -1,8 +1,8 @@
 <?php
 
-namespace Vistas\Personas;
+namespace App\Vistas\Personas;
 
-use Vistas\Plantillas\Plantilla;
+use App\Vistas\Plantillas\Plantilla;
 
 class PersonaVista
 {

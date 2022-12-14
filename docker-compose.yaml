@@ -11,7 +11,7 @@ services:
     volumes:
       - ./.docker/apache/php.ini:/usr/local/etc/php/php.ini
       - ./.docker/apache/httpd.conf:/etc/apache2/conf-available/httpd.conf
-      - ./.docker/apache/site-available:/etc/apache2/sites-available
+      - ./.docker/apache/sites-available:/etc/apache2/sites-available
       - ./src/:/var/www/html
     expose:
       - 80
@@ -45,6 +45,27 @@ services:
       MYSQL_USER: usuario
       MYSQL_PASSWORD: 1234
       MYSQL_ROOT_PASSWORD: 1234
+
+  mongo:
+    image: mongo
+    restart: on-failure
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: on-failure
+    links:
+      - mongo
+    networks:
+      - default
+    ports:
+      - 8001:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 volumes:
   persistent:
 
@@ -62,4 +83,4 @@ volumes:
     # https://www.cloudsavvyit.com/10528/how-to-use-docker-to-containerise-php-and-apache/
 
     # el host de la base de datos es el nombre de la imagen que aparece entre paréntesis
-    # de la imagen 'mysql:8.0' ... por ejemplo (f95de814f6b4)
+  # de la imagen 'mysql:8.0' ... por ejemplo (f95de814f6b4)

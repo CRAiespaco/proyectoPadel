@@ -1,6 +1,6 @@
 <?php
 
-namespace Modelo\Personas;
+namespace App\Modelo\Personas;
 
 use App\Personas\Persona;
 
@@ -8,7 +8,8 @@ interface InterfazPersonas
 {
     public function insertarPersona(Persona $persona):?Persona;
     public function modificarPersona(Persona $persona):?Persona;
-    public function borrarPersona(Persona $persona):?Persona;
+    public function modificarTodasLasPersonas(array $elementosAModificar);
+        public function borrarPersona(Persona $persona):?Persona;
     public function borrarPersonaPorDNI(string $dni):?Persona;
     public function leerPersona(string $dni):?Persona;
     public function leerPersonaPorCorreoElectronico(string $correoElectronico):?Persona;

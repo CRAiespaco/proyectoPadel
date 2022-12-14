@@ -5,10 +5,7 @@
 
     namespace App;
 
-    use App\Personas\Persona;
-    use Controlador\Personas\PersonaControlador;
-    use Modelo\Personas\PersonaDAOMySQL;
-    use Vistas\Personas\PersonaVista;
+    use App\Controlador\Personas\PersonaControlador;
     use Vistas\Plantillas\Plantilla;
 
     include __DIR__."/autoload.php";
