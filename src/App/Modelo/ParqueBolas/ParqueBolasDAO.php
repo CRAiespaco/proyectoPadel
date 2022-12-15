@@ -51,4 +51,5 @@ abstract class ParqueBolasDAO implements InterfazParqueBolas{
     {
         // TODO: Implement calcularCostePorPersona() method.
     }
+    //15/12/2022 Examen
 }
