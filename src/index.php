@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Controlador\ParqueBolas\ParqueBolasControlador;
 use App\Controlador\Personas\PersonaControlador;
 use App\Controlador\Servicios\PistaControlador;
 use App\Modelo\Personas\PersonaDAOMongoDB;
@@ -45,10 +46,14 @@ $router->guardarRuta('post','/api/personas',[PersonaControlador::class,"guardar"
 $router->guardarRuta('delete','/api/personas',[PersonaControlador::class,"borrar"]);
 $router->guardarRuta('put','/api/personas',[PersonaControlador::class,"modificar"]);
 
-$router->guardarRuta('get','/pistas',[PistaControlador::class,"mostrar"]);
-$router->guardarRuta('post','/api/pistas',[PistaControlador::class,"guardar"]);
-$router->guardarRuta('delete','/api/pistas',[PistaControlador::class,"borrar"]);
-$router->guardarRuta('put','/api/pistas',[PistaControlador::class,"modificar"]);
+/*$router->guardarRuta('get','/pistas',[PistaControlador::class,"mostrar"]);
+$router->guardarRuta('post','/pistas',[PistaControlador::class,"guardar"]);
+$router->guardarRuta('delete','/pistas',[PistaControlador::class,"borrar"]);
+$router->guardarRuta('put','/pistas',[PistaControlador::class,"modificar"]);*/
+
+$router->guardarRuta('get','/reservaParqueBolas',[ParqueBolasControlador::class,"mostrar"]);
+$router->guardarRuta('post','/reservaParqueBolas',[ParqueBolasControlador::class,"guardar"]);
+$router->guardarRuta('delete','/reservaParqueBolas',[ParqueBolasControlador::class,"borrar"]);
 
 $router->resolverRuta($_SERVER['REQUEST_URI'],$_SERVER['REQUEST_METHOD']);
 /*

@@ -1,22 +1,15 @@
 <?php
-
 namespace App;
-
 use App\Exceptions\RutaNoEncontradaException;
 
 class Router{
     private array $rutas;
-
     public function  guardarRuta(string $metodo, string $ruta,callable|array $accion):self{
         $this->rutas[$metodo][$ruta]=$accion;
         return $this;
     }
 
     public function  resolverRuta($ruta,$metodo){
-        //1ª Caso Me piden / personas
-
-        //2ª Caso Me pidan /persona/44333222A(dni)
-
         $rutaFiltrada=parse_url($ruta,PHP_URL_PATH);
         $arrayRuta=explode('/',$rutaFiltrada);
 
