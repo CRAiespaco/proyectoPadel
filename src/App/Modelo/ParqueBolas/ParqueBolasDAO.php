@@ -50,4 +50,5 @@ abstract class ParqueBolasDAO implements InterfazParqueBolas{
     public function calcularCostePorPersona(string $cliente1,string $cliente2,int $porcentaje1,int $porcentaje2,int $horas,float $precio):array{
         // TODO: Implement calcularCostePorPersona() method.
     }
+    //ggggg
 }
